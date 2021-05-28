@@ -1,0 +1,55 @@
+<%- include("partials/header") -%>
+<section id="section-2">
+    <div class="greetBox">
+        <h1 class="hello">Hello,</h1>
+        <p class="day">Good morning.</p>
+    </div>
+    <div class="categories">
+        <div class="container inlineProp">
+            <img class="inlineProp categories-icon" src="images1/fashion.png">
+            <p class="inlineProp cat-txt">Fashion</p>
+        </div>
+        <div class="container inlineProp txt2cat">
+            <img class="inlineProp categories-icon" src="images1/cpu.png">
+            <p class="inlineProp cat-txt ">Technology</p>
+        </div>
+    </div>
+</section>
+<section id="blog-utility">
+    <ul class="ul-list">
+        <li class="list"><a class="links h2Blog" href="/">Blogs</a></li>
+        <li class="list ab-link" ><a class="links custom-a" href="/"><i class="fas fa-home inlineProp my-ico"></i>Home</a></li>
+        <!-- <li class="list"><a class="links" href="#">About</a></li> -->
+        <li class="list ab-link"><a class="links custom-a" href="#footer"><i class="fas fa-id-badge my-ico inlineProp"></i></i>Contact</a></li>
+    </ul>
+</section>
+
+<% if(postsData.length === 0){ %>
+    <section id="blog-section">
+        <div class="all-content">
+            <div class="inlineProp blog-img" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('https://wallpapercave.com/wp/wp2075808.jpg');">
+                <p class="date inlineProp">15 January, 2021</p>
+    
+                <h2 class="blog-title inlineProp">Work hard!</h2>
+            </div>
+            <p class="paraTextFonts blog-contnt inlineProp">Work hard, one day all your late nights will pay off.</p>
+        </div>
+    </section>
+<% } else { %>
+
+    <% for(var i = (postsData.length - 1); i >= 0; i--) {  %>
+        <section id="blog-section">
+            <div class="all-content">
+                <div class="inlineProp blog-img" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('<%= postsData[i].imageUrl %>');">
+                    <p class="date inlineProp"><%= postsData[i].postDate %></p>
+        
+                    <h2 class="blog-title inlineProp"><%= postsData[i].title %></h2>
+                </div>
+                <p class="paraTextFonts blog-contnt inlineProp"><%= postsData[i].content.slice(0, 50); %>...<a class="links" href="/posts/<%= postsData[i].title.toLowerCase() %>">Read more</a></p>
+            </div>
+        </section>
+        <% } %>
+
+<% } %>
+
+<%- include("partials/footer") -%>

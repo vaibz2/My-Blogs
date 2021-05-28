@@ -1,0 +1,24 @@
+<%- include("partials/header") -%>
+<section id="blog-utility">
+    <h1 class="h2Blog">Compose</h1>
+</section>
+
+<section id="compose-section">
+    <form action="/compose" method="post">
+        <div class="postSec">
+            <h1 class="label">Title</h1>
+            <input class="input-box" type="text" name="postTitle" autofocus>
+        </div>
+        <div class="postSec">
+            <h1 class="label">Post</h1>
+            <textarea class="textarea" type="text" cols="3" name="postContent"></textarea>
+           
+            <input type="text" class="postSec password-inp url-inp" name="image_url" placeholder="Image URL: e.g. (https://www.image.com/collection/sky?1280x250)">
+            <br>
+            <input type="password" class="postSec password-inp" name="password" placeholder="Enter your password*">
+        </div>
+        <button type="submit" class="compose-btn">Publish</button>
+    </form>
+</section>
+
+<%- include("partials/footer") -%>

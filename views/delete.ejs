@@ -1,0 +1,26 @@
+<%- include("partials/header") -%>
+
+<section id="blog-utility">
+    <ul class="ul-del">
+        <li class="list"><a class="links h2Blog" href="/">Blogs</a></li>
+    </ul>
+</section>
+
+<% for(var i = (postsData.length - 1); i >= 0; i--) {  %>
+<section id="blog-section">
+    <form action="/delete" method="post">
+        
+        <div class="all-content">
+            <div class="inlineProp blog-img" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= postsData[i].imageUrl %>');">
+                <p class="date inlineProp"><%= postsData[i].postDate %></p>
+                <h2 class="blog-title inlineProp"><%= postsData[i].title %></h2>
+                <button type="submit" class="inlineProp del-btn" name="btn" value="<%= postsData[i]._id %>"><i class="fas fa-trash-alt fa-2x"></i></button>
+            </div>
+            <p class="paraTextFonts blog-contnt inlineProp"><%= postsData[i].content.slice(0, 50); %>...<a class="links" href="/posts/<%=postsData[i].title.toLowerCase(); %>">Read more</a></p>
+        </div>
+   
+</section>
+<% } %>
+<input class="inlineProp del-inp" type="password" name="password" placeholder="Enter password">
+</form>
+<%- include("partials/footer") -%>
