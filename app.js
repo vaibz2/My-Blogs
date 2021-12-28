@@ -6,7 +6,7 @@ const _ = require("lodash");
 const myPassword = ""; // add your new password here   
 
 //connect to database
-mongoose.connect("mongodb+srv://admin", {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false});
+mongoose.connect("mongodb://localhost:27017/blogsDB");
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
